@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Create your free SkillBridge account and start learning today." />
+  <title>Sign Up – SkillBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <style>
+    body { background: var(--lighter); min-height: 100vh; display: flex; flex-direction: column; }
+    .auth-page { flex: 1; display: flex; align-items: center; justify-content: center; padding: 3rem 1rem; }
+    .auth-card {
+      background: var(--white); border: 1px solid var(--light);
+      border-radius: var(--radius-2xl); box-shadow: var(--shadow-xl);
+      width: 100%; max-width: 480px; padding: 2.5rem;
+      animation: fadeInUp .5s ease;
+    }
+    .auth-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); text-align: center; margin-bottom: .3rem; }
+    .auth-subtitle { font-size: .88rem; color: var(--mid); text-align: center; margin-bottom: 1.75rem; }
+    .form-label { font-size: .85rem; font-weight: 600; color: var(--dark-3); margin-bottom: .4rem; }
+    .form-control {
+      border: 1.5px solid var(--light); border-radius: var(--radius-sm) !important;
+      padding: .65rem 1rem; font-size: .9rem; transition: var(--transition-fast);
+    }
+    .form-control:focus { border-color: var(--primary) !important; box-shadow: 0 0 0 3px rgba(37,99,235,.1) !important; }
+    .input-icon { position: relative; }
+    .input-icon .icon { position: absolute; left: .9rem; top: 50%; transform: translateY(-50%); color: var(--light-3); font-size: .85rem; pointer-events: none; }
+    .input-icon input { padding-left: 2.4rem !important; }
+    .input-icon .toggle-pw { position: absolute; right: .9rem; top: 50%; transform: translateY(-50%); color: var(--mid); cursor: pointer; font-size: .85rem; background: none; border: none; }
+    .btn-auth {
+      width: 100%; background: var(--gradient-primary); color: white;
+      font-weight: 700; font-size: 1rem; padding: .8rem; border: none;
+      border-radius: var(--radius-md); box-shadow: var(--shadow-primary);
+      cursor: pointer; transition: var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
+    .btn-auth:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(37,99,235,.4); }
+    .divider-or { display: flex; align-items: center; gap: .75rem; margin: 1.5rem 0; }
+    .divider-or::before, .divider-or::after { content: ''; flex: 1; height: 1px; background: var(--light); }
+    .divider-or span { font-size: .8rem; color: var(--light-3); font-weight: 500; white-space: nowrap; }
+    .btn-social {
+      flex: 1; background: var(--white); border: 1.5px solid var(--light);
+      border-radius: var(--radius-md); padding: .7rem; font-size: .9rem; font-weight: 600;
+      color: var(--dark-3); cursor: pointer; display: flex; align-items: center; justify-content: center;
+      gap: .6rem; transition: var(--transition-fast);
+    }
+    .btn-social:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-pale); }
+    .auth-footer { text-align: center; margin-top: 1.5rem; font-size: .88rem; color: var(--mid); }
+    .auth-footer a { color: var(--primary); font-weight: 600; }
+
+    /* Password strength */
+    .pw-strength { margin-top: .4rem; height: 4px; background: var(--light); border-radius: 2px; overflow: hidden; }
+    .pw-strength-bar { height: 100%; width: 0; border-radius: 2px; transition: width .3s ease, background .3s ease; }
+    .pw-strength-label { font-size: .72rem; color: var(--mid); margin-top: .25rem; }
+
+    .perks { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; }
+    .perk { display: flex; align-items: center; gap: .6rem; font-size: .82rem; color: var(--mid); }
+    .perk i { color: var(--success); }
+  </style>
+</head>
+<body>
+
+<!-- Minimal Navbar -->
+<nav style="background:var(--white);border-bottom:1px solid var(--light);padding:.85rem 0">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="index.html" style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--dark);display:flex;align-items:center;gap:.5rem">
+      <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      Skill<span style="color:var(--primary)">Bridge</span>
+    </a>
+    <div style="font-size:.88rem;color:var(--mid)">
+      Already a member? <a href="login.html" style="color:var(--primary);font-weight:600">Log in</a>
+    </div>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-title">Create Your Free Account</div>
+    <p class="auth-subtitle">Join 10,000+ learners building real skills</p>
+
+    <div class="perks">
+      <div class="perk"><i class="fa-solid fa-circle-check"></i> Access to 150+ expert-led courses</div>
+      <div class="perk"><i class="fa-solid fa-circle-check"></i> Earn verified certificates</div>
+      <div class="perk"><i class="fa-solid fa-circle-check"></i> 30-day money-back guarantee</div>
+    </div>
+
+    <form id="signupForm" novalidate>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label class="form-label" for="signupFirstName">First Name</label>
+          <div class="input-icon">
+            <i class="icon fa-solid fa-user"></i>
+            <input type="text" class="form-control" id="signupFirstName" placeholder="John" required />
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label" for="signupLastName">Last Name</label>
+          <input type="text" class="form-control" id="signupLastName" placeholder="Doe" required />
+        </div>
+        <div class="col-12">
+          <label class="form-label" for="signupEmail">Email Address</label>
+          <div class="input-icon">
+            <i class="icon fa-solid fa-envelope"></i>
+            <input type="email" class="form-control" id="signupEmail" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="col-12">
+          <label class="form-label" for="signupPassword">Password</label>
+          <div class="input-icon">
+            <i class="icon fa-solid fa-lock"></i>
+            <input type="password" class="form-control" id="signupPassword" placeholder="Min. 8 characters" required />
+            <button type="button" class="toggle-pw" onclick="togglePw('signupPassword', this)">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <div class="pw-strength"><div class="pw-strength-bar" id="pwBar"></div></div>
+          <div class="pw-strength-label" id="pwLabel">Enter a password</div>
+        </div>
+        <div class="col-12">
+          <div class="d-flex align-items-flex-start gap-2">
+            <input type="checkbox" id="agreeTerms" style="accent-color:var(--primary);margin-top:.2rem" required />
+            <label for="agreeTerms" style="font-size:.82rem;color:var(--mid);cursor:pointer">
+              I agree to SkillBridge's <a href="#" style="color:var(--primary);font-weight:600">Terms of Service</a> and <a href="#" style="color:var(--primary);font-weight:600">Privacy Policy</a>
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn-auth">
+            <i class="fa-solid fa-rocket"></i> Create Free Account
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="divider-or"><span>or sign up with</span></div>
+
+    <div class="d-flex gap-2">
+      <button class="btn-social" onclick="socialSignup('Google')">
+        <img src="https://www.google.com/favicon.ico" width="16" height="16" alt="Google" />
+        Google
+      </button>
+      <button class="btn-social" onclick="socialSignup('GitHub')">
+        <i class="fa-brands fa-github"></i> GitHub
+      </button>
+    </div>
+
+    <div class="auth-footer">
+      Already have an account? <a href="login.html">Log in</a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function togglePw(id, btn) {
+    const input = document.getElementById(id);
+    const icon = btn.querySelector('i');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.classList.replace('fa-eye', 'fa-eye-slash');
+    } else {
+      input.type = 'password';
+      icon.classList.replace('fa-eye-slash', 'fa-eye');
+    }
+  }
+
+  // Password strength
+  document.getElementById('signupPassword')?.addEventListener('input', function() {
+    const val = this.value;
+    const bar = document.getElementById('pwBar');
+    const label = document.getElementById('pwLabel');
+    let strength = 0;
+    if (val.length >= 8) strength++;
+    if (/[A-Z]/.test(val)) strength++;
+    if (/[0-9]/.test(val)) strength++;
+    if (/[^A-Za-z0-9]/.test(val)) strength++;
+
+    const levels = [
+      { w: '0%',   bg: 'var(--light)',   text: 'Enter a password' },
+      { w: '25%',  bg: 'var(--danger)',  text: 'Weak' },
+      { w: '50%',  bg: 'var(--warning)', text: 'Fair' },
+      { w: '75%',  bg: '#06b6d4',        text: 'Good' },
+      { w: '100%', bg: 'var(--success)', text: 'Strong ✓' },
+    ];
+
+    const level = val.length ? levels[strength] : levels[0];
+    bar.style.width = level.w;
+    bar.style.background = level.bg;
+    label.textContent = level.text;
+    label.style.color = level.bg === 'var(--light)' ? 'var(--mid)' : level.bg;
+  });
+
+  document.getElementById('signupForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const first = document.getElementById('signupFirstName').value.trim();
+    const last  = document.getElementById('signupLastName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const pw    = document.getElementById('signupPassword').value;
+    const agreed = document.getElementById('agreeTerms').checked;
+
+    if (!first || !last || !email || !pw) {
+      showToast('Please fill in all fields.', 'error');
+      return;
+    }
+    if (pw.length < 8) {
+      showToast('Password must be at least 8 characters.', 'error');
+      return;
+    }
+    if (!agreed) {
+      showToast('Please agree to the Terms of Service.', 'error');
+      return;
+    }
+
+    const btn = this.querySelector('button[type=submit]');
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Creating account…';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      showToast('Account created successfully! Welcome to SkillBridge 🎉', 'success');
+      setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+    }, 1500);
+  });
+
+  function socialSignup(provider) {
+    showToast(`Connecting with ${provider}…`, 'info');
+  }
+</script>
+</body>
+</html>

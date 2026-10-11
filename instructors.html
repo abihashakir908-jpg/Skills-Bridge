@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meet the SkillBridge expert instructors. Learn from industry professionals with real-world experience." />
+  <title>Instructors – SkillBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <style>
+    .instructor-card-full {
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      transition: var(--transition);
+      height: 100%;
+    }
+    .instructor-card-full:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: transparent;
+    }
+    .instr-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
+    .instr-avatar-lg {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--gradient-primary); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; font-weight: 700; flex-shrink: 0;
+    }
+    .instr-info .name { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin: 0; }
+    .instr-info .title { font-size: .85rem; color: var(--mid); margin: 0; }
+    .instr-bio { font-size: .88rem; color: var(--mid); line-height: 1.7; margin-bottom: 1rem; }
+    .instr-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.25rem; }
+    .instr-tag {
+      font-size: .72rem; font-weight: 600; color: var(--primary);
+      background: var(--primary-pale); padding: .2rem .65rem;
+      border-radius: var(--radius-full);
+    }
+    .instr-stats-row { display: flex; gap: 1.5rem; border-top: 1px solid var(--light); padding-top: 1rem; }
+    .instr-stat { text-align: center; }
+    .instr-stat strong { display: block; font-size: 1rem; font-weight: 700; color: var(--dark); }
+    .instr-stat span { font-size: .75rem; color: var(--mid); }
+    .social-links { display: flex; gap: .5rem; margin-top: .75rem; }
+    .social-links a {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--lighter); color: var(--mid);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; transition: var(--transition-fast);
+    }
+    .social-links a:hover { background: var(--primary); color: white; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      Skill<span>Bridge</span>
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <i class="fa-solid fa-bars" style="font-size:1.2rem;color:var(--dark-3)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+        <li class="nav-item"><a class="nav-link active" href="instructors.html">Instructors</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+        <div class="search-wrapper">
+          <button class="search-btn-icon" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <div class="search-dropdown" id="searchDropdown">
+            <input type="text" id="searchInput" placeholder="Search…" autocomplete="off" />
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-link btn-nav-login">Login</a>
+        <a href="signup.html" class="nav-link btn-nav-cta">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container position-relative" style="z-index:1">
+    <div class="breadcrumb-custom">
+      <a href="index.html">Home</a><span class="sep">/</span><span class="current">Instructors</span>
+    </div>
+    <h1 class="page-hero-title">Our Expert Instructors</h1>
+    <p class="page-hero-subtitle">Learn from 50+ world-class professionals with proven industry experience.</p>
+  </div>
+</section>
+
+<!-- INSTRUCTORS SECTION -->
+<section style="padding:var(--section-py) 0;background:var(--lighter)">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <span class="section-badge"><i class="fa-solid fa-star"></i> Top Rated</span>
+      <h2 class="section-title">Meet Our <span style="color:var(--primary)">Instructors</span></h2>
+      <p class="section-subtitle">Hand-picked experts committed to delivering world-class learning experiences.</p>
+    </div>
+
+    <div class="row g-4 stagger-children">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="instructor-card-full">
+          <div class="instr-header">
+            <div class="instr-avatar-lg">AR</div>
+            <div class="instr-info">
+              <p class="name">Alex Rivera</p>
+              <p class="title">Senior Full Stack Developer</p>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <p class="instr-bio">10+ years of full-stack web development experience working with companies like Google and Airbnb. Passionate about teaching modern web technologies.</p>
+          <div class="instr-tags">
+            <span class="instr-tag">HTML/CSS</span>
+            <span class="instr-tag">JavaScript</span>
+            <span class="instr-tag">React</span>
+            <span class="instr-tag">Node.js</span>
+            <span class="instr-tag">MongoDB</span>
+          </div>
+          <div class="instr-stats-row">
+            <div class="instr-stat"><strong>12K+</strong><span>Students</span></div>
+            <div class="instr-stat"><strong>8</strong><span>Courses</span></div>
+            <div class="instr-stat"><strong>4.9 ⭐</strong><span>Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="instructor-card-full">
+          <div class="instr-header">
+            <div class="instr-avatar-lg" style="background:linear-gradient(135deg,#7c3aed,#ec4899)">SC</div>
+            <div class="instr-info">
+              <p class="name">Sofia Chen</p>
+              <p class="title">Lead UI/UX Designer</p>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+                <a href="#"><i class="fa-brands fa-behance"></i></a>
+              </div>
+            </div>
+          </div>
+          <p class="instr-bio">Award-winning UX designer with 8 years crafting digital experiences for Fortune 500 companies. Certified Figma expert and design thinking facilitator.</p>
+          <div class="instr-tags">
+            <span class="instr-tag">Figma</span>
+            <span class="instr-tag">UI/UX</span>
+            <span class="instr-tag">Wireframing</span>
+            <span class="instr-tag">Prototyping</span>
+          </div>
+          <div class="instr-stats-row">
+            <div class="instr-stat"><strong>8K+</strong><span>Students</span></div>
+            <div class="instr-stat"><strong>6</strong><span>Courses</span></div>
+            <div class="instr-stat"><strong>4.8 ⭐</strong><span>Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="instructor-card-full">
+          <div class="instr-header">
+            <div class="instr-avatar-lg" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">EP</div>
+            <div class="instr-info">
+              <p class="name">Emily Park</p>
+              <p class="title">Data Scientist & ML Engineer</p>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <p class="instr-bio">PhD in Computer Science from MIT. Former data scientist at Netflix and Tesla. Specialises in machine learning, deep learning, and data visualisation.</p>
+          <div class="instr-tags">
+            <span class="instr-tag">Python</span>
+            <span class="instr-tag">Machine Learning</span>
+            <span class="instr-tag">TensorFlow</span>
+            <span class="instr-tag">Data Science</span>
+          </div>
+          <div class="instr-stats-row">
+            <div class="instr-stat"><strong>22K+</strong><span>Students</span></div>
+            <div class="instr-stat"><strong>10</strong><span>Courses</span></div>
+            <div class="instr-stat"><strong>4.9 ⭐</strong><span>Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="instructor-card-full">
+          <div class="instr-header">
+            <div class="instr-avatar-lg" style="background:linear-gradient(135deg,#16a34a,#06b6d4)">MJ</div>
+            <div class="instr-info">
+              <p class="name">Marcus Johnson</p>
+              <p class="title">Digital Marketing Strategist</p>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          <p class="instr-bio">Helped 200+ businesses scale their digital presence. Former VP of Marketing at HubSpot. Expert in SEO, paid ads, and marketing automation.</p>
+          <div class="instr-tags">
+            <span class="instr-tag">SEO</span>
+            <span class="instr-tag">Google Ads</span>
+            <span class="instr-tag">Social Media</span>
+            <span class="instr-tag">Analytics</span>
+          </div>
+          <div class="instr-stats-row">
+            <div class="instr-stat"><strong>15K+</strong><span>Students</span></div>
+            <div class="instr-stat"><strong>7</strong><span>Courses</span></div>
+            <div class="instr-stat"><strong>4.7 ⭐</strong><span>Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="instructor-card-full">
+          <div class="instr-header">
+            <div class="instr-avatar-lg" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">DK</div>
+            <div class="instr-info">
+              <p class="name">David Kim</p>
+              <p class="title">Business Strategist & Consultant</p>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <p class="instr-bio">MBA from Harvard Business School. 15 years consulting for Fortune 100 companies. Expert in business strategy, leadership and organisational development.</p>
+          <div class="instr-tags">
+            <span class="instr-tag">Strategy</span>
+            <span class="instr-tag">Leadership</span>
+            <span class="instr-tag">Finance</span>
+            <span class="instr-tag">Management</span>
+          </div>
+          <div class="instr-stats-row">
+            <div class="instr-stat"><strong>9K+</strong><span>Students</span></div>
+            <div class="instr-stat"><strong>5</strong><span>Courses</span></div>
+            <div class="instr-stat"><strong>4.6 ⭐</strong><span>Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="instructor-card-full">
+          <div class="instr-header">
+            <div class="instr-avatar-lg" style="background:linear-gradient(135deg,#ea580c,#f59e0b)">RH</div>
+            <div class="instr-info">
+              <p class="name">Ryan Hart</p>
+              <p class="title">Professional Photographer</p>
+              <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <p class="instr-bio">National Geographic contributor with 12 years of professional photography. Expert in portrait, landscape and commercial photography with advanced editing techniques.</p>
+          <div class="instr-tags">
+            <span class="instr-tag">Portrait</span>
+            <span class="instr-tag">Landscape</span>
+            <span class="instr-tag">Lightroom</span>
+            <span class="instr-tag">Composition</span>
+          </div>
+          <div class="instr-stats-row">
+            <div class="instr-stat"><strong>6K+</strong><span>Students</span></div>
+            <div class="instr-stat"><strong>4</strong><span>Courses</span></div>
+            <div class="instr-stat"><strong>4.8 ⭐</strong><span>Rating</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+
+    <!-- Become instructor CTA -->
+    <div class="text-center mt-5 reveal">
+      <div style="background:var(--primary-pale);border-radius:var(--radius-xl);padding:3rem 2rem;max-width:600px;margin:0 auto;">
+        <div style="font-size:2.5rem;margin-bottom:1rem">🎓</div>
+        <h3 style="font-weight:700;color:var(--dark);margin-bottom:.75rem">Want to Teach on SkillBridge?</h3>
+        <p style="color:var(--mid);margin-bottom:1.5rem">Join 50+ instructors earning by sharing their expertise. We provide all the tools you need to succeed.</p>
+        <a href="contact.html" class="btn-primary-custom">
+          Apply to Teach <i class="fa-solid fa-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand"><span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>Skill<span>Bridge</span></div>
+        <p class="footer-desc">Empowering students worldwide to build skills for personal and professional growth.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="instructors.html">Instructors</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Top Courses</div>
+        <ul class="footer-links">
+          <li><a href="courses.html">Web Development</a></li>
+          <li><a href="courses.html">UI/UX Design</a></li>
+          <li><a href="courses.html">Data Science</a></li>
+          <li><a href="courses.html">Digital Marketing</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Support</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Newsletter</div>
+        <div class="newsletter-box">
+          <p>Get latest courses and offers.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email" />
+            <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 SkillBridge. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Support</a></div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" title="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

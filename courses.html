@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse all SkillBridge courses. Filter by category, level, or rating. Find the perfect course to advance your career." />
+  <title>Courses – SkillBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      Skill<span>Bridge</span>
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <i class="fa-solid fa-bars" style="font-size:1.2rem;color:var(--dark-3)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="instructors.html">Instructors</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+        <div class="search-wrapper">
+          <button class="search-btn-icon" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <div class="search-dropdown" id="searchDropdown">
+            <input type="text" id="searchInput" placeholder="Search courses…" autocomplete="off" />
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-link btn-nav-login">Login</a>
+        <a href="signup.html" class="nav-link btn-nav-cta">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container position-relative" style="z-index:1">
+    <div class="breadcrumb-custom">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span class="current">Courses</span>
+    </div>
+    <h1 class="page-hero-title">All Courses</h1>
+    <p class="page-hero-subtitle">150+ expert-led courses across 6 categories. Start learning today.</p>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses-section">
+  <div class="container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal">
+      <span style="font-size:.85rem;font-weight:600;color:var(--dark-3)">Filter:</span>
+      <button class="filter-btn active" data-filter="all">All Courses</button>
+      <button class="filter-btn" data-filter="web">Web Dev</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="marketing">Marketing</button>
+      <button class="filter-btn" data-filter="programming">Programming</button>
+      <button class="filter-btn" data-filter="business">Business</button>
+      <button class="filter-btn" data-filter="photography">Photography</button>
+    </div>
+
+    <div class="row g-4" id="courseGrid">
+
+      <!-- Web Dev Courses -->
+      <div class="col-sm-6 col-lg-4 course-item" data-category="web">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=600&q=80" alt="Web Development Bootcamp" loading="lazy" />
+            <span class="course-badge bestseller">Bestseller</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Web Development</div>
+            <h3 class="course-title">Complete Web Development Bootcamp 2024</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder">AR</div><span>Alex Rivera</span></div>
+            <div class="course-rating"><span class="stars">★★★★★</span><span class="rating-val">4.9</span><span class="rating-count">(2,847)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 12,400</span><span><i class="fa-regular fa-clock"></i> 48h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$14.99</span><span class="original-price">$89.99</span></div>
+            <a href="course-detail.html?id=1" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 course-item" data-category="web">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80" alt="React & Next.js" loading="lazy" />
+            <span class="course-badge new">New</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Web Development</div>
+            <h3 class="course-title">React & Next.js – Build Modern Web Applications</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#06b6d4,#2563eb)">LM</div><span>Laura Martinez</span></div>
+            <div class="course-rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span><span class="rating-count">(2,201)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 11,300</span><span><i class="fa-regular fa-clock"></i> 44h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$15.99</span><span class="original-price">$94.99</span></div>
+            <a href="course-detail.html?id=6" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 course-item" data-category="web">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80" alt="CSS & Animations" loading="lazy" />
+            <span class="course-badge">Popular</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Web Development</div>
+            <h3 class="course-title">Advanced CSS, Animations & Responsive Design</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#7c3aed,#2563eb)">TW</div><span>Tom Walsh</span></div>
+            <div class="course-rating"><span class="stars">★★★★½</span><span class="rating-val">4.7</span><span class="rating-count">(1,540)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 7,800</span><span><i class="fa-regular fa-clock"></i> 28h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$12.99</span><span class="original-price">$74.99</span></div>
+            <a href="course-detail.html?id=7" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Courses -->
+      <div class="col-sm-6 col-lg-4 course-item" data-category="design">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80" alt="UI/UX Design" loading="lazy" />
+            <span class="course-badge new">New</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Graphic Design</div>
+            <h3 class="course-title">UI/UX Design Masterclass – Figma & Design Thinking</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#7c3aed,#ec4899)">SC</div><span>Sofia Chen</span></div>
+            <div class="course-rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span><span class="rating-count">(1,923)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 8,200</span><span><i class="fa-regular fa-clock"></i> 32h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$12.99</span><span class="original-price">$74.99</span></div>
+            <a href="course-detail.html?id=2" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 course-item" data-category="design">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=600&q=80" alt="Adobe Photoshop" loading="lazy" />
+            <span class="course-badge bestseller">Bestseller</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Graphic Design</div>
+            <h3 class="course-title">Adobe Photoshop & Illustrator – Complete Design Course</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#ec4899,#f59e0b)">NB</div><span>Nina Bloom</span></div>
+            <div class="course-rating"><span class="stars">★★★★½</span><span class="rating-val">4.7</span><span class="rating-count">(2,110)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 10,500</span><span><i class="fa-regular fa-clock"></i> 36h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$13.99</span><span class="original-price">$79.99</span></div>
+            <a href="course-detail.html?id=8" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing Courses -->
+      <div class="col-sm-6 col-lg-4 course-item" data-category="marketing">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Digital Marketing" loading="lazy" />
+            <span class="course-badge">Popular</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Digital Marketing</div>
+            <h3 class="course-title">Digital Marketing Mastery – SEO, Ads & Social Media</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#16a34a,#06b6d4)">MJ</div><span>Marcus Johnson</span></div>
+            <div class="course-rating"><span class="stars">★★★★½</span><span class="rating-val">4.7</span><span class="rating-count">(3,105)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 15,600</span><span><i class="fa-regular fa-clock"></i> 24h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$11.99</span><span class="original-price">$69.99</span></div>
+            <a href="course-detail.html?id=3" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programming Courses -->
+      <div class="col-sm-6 col-lg-4 course-item" data-category="programming">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80" alt="Python Data Science" loading="lazy" />
+            <span class="course-badge bestseller">Bestseller</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Programming</div>
+            <h3 class="course-title">Python & Data Science – From Beginner to Expert</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">EP</div><span>Emily Park</span></div>
+            <div class="course-rating"><span class="stars">★★★★★</span><span class="rating-val">4.9</span><span class="rating-count">(4,512)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 22,100</span><span><i class="fa-regular fa-clock"></i> 56h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$16.99</span><span class="original-price">$99.99</span></div>
+            <a href="course-detail.html?id=4" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business Course -->
+      <div class="col-sm-6 col-lg-4 course-item" data-category="business">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Business Strategy" loading="lazy" />
+            <span class="course-badge">Popular</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Business</div>
+            <h3 class="course-title">Business Strategy & Leadership – Complete MBA Skills</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#2563eb,#7c3aed)">DK</div><span>David Kim</span></div>
+            <div class="course-rating"><span class="stars">★★★★½</span><span class="rating-val">4.6</span><span class="rating-count">(1,654)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 9,800</span><span><i class="fa-regular fa-clock"></i> 38h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$13.99</span><span class="original-price">$79.99</span></div>
+            <a href="course-detail.html?id=5" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photography Course -->
+      <div class="col-sm-6 col-lg-4 course-item" data-category="photography">
+        <div class="course-card">
+          <div class="course-card-img">
+            <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&q=80" alt="Photography" loading="lazy" />
+            <span class="course-badge">Popular</span>
+            <button class="course-wishlist"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="course-body">
+            <div class="course-category-tag">Photography</div>
+            <h3 class="course-title">Photography Masterclass – From Beginner to Pro</h3>
+            <div class="course-instructor"><div class="instr-avatar-placeholder" style="background:linear-gradient(135deg,#ea580c,#f59e0b)">RH</div><span>Ryan Hart</span></div>
+            <div class="course-rating"><span class="stars">★★★★★</span><span class="rating-val">4.8</span><span class="rating-count">(1,298)</span></div>
+            <div class="course-meta"><span><i class="fa-solid fa-users"></i> 6,400</span><span><i class="fa-regular fa-clock"></i> 30h</span></div>
+          </div>
+          <div class="course-footer">
+            <div><span class="course-price">$11.99</span><span class="original-price">$64.99</span></div>
+            <a href="course-detail.html?id=9" class="btn-course">View Course</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /courseGrid -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand">
+          <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+          Skill<span>Bridge</span>
+        </div>
+        <p class="footer-desc">SkillBridge is a modern online learning platform empowering students worldwide to discover practical courses and build skills for professional growth.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="instructors.html">Instructors</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Top Courses</div>
+        <ul class="footer-links">
+          <li><a href="courses.html">Web Development</a></li>
+          <li><a href="courses.html">UI/UX Design</a></li>
+          <li><a href="courses.html">Data Science</a></li>
+          <li><a href="courses.html">Digital Marketing</a></li>
+          <li><a href="courses.html">Business Strategy</a></li>
+          <li><a href="courses.html">Photography</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Support</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Become Instructor</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Newsletter</div>
+        <div class="newsletter-box">
+          <p>Get the latest courses and offers.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email" aria-label="Email" />
+            <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 SkillBridge. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" title="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

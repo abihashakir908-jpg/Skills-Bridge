@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore all learning categories on SkillBridge – Web Development, Design, Marketing, Business, Photography and more." />
+  <title>Categories – SkillBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      Skill<span>Bridge</span>
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <i class="fa-solid fa-bars" style="font-size:1.2rem;color:var(--dark-3)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link active" href="categories.html">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="instructors.html">Instructors</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+        <div class="search-wrapper">
+          <button class="search-btn-icon" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <div class="search-dropdown" id="searchDropdown">
+            <input type="text" id="searchInput" placeholder="Search…" autocomplete="off" />
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-link btn-nav-login">Login</a>
+        <a href="signup.html" class="nav-link btn-nav-cta">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container position-relative" style="z-index:1">
+    <div class="breadcrumb-custom">
+      <a href="index.html">Home</a><span class="sep">/</span><span class="current">Categories</span>
+    </div>
+    <h1 class="page-hero-title">Explore Categories</h1>
+    <p class="page-hero-subtitle">Find your passion and start learning in the field that excites you most.</p>
+  </div>
+</section>
+
+<!-- CATEGORIES GRID -->
+<section class="categories-section" style="background:var(--lighter)">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">All <span style="color:var(--primary)">Categories</span></h2>
+      <p class="section-subtitle">Browse our full range of learning categories.</p>
+    </div>
+
+    <div class="row g-4 stagger-children">
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap cat-blue"><i class="fa-solid fa-code"></i></div>
+            <h3 class="cat-name">Web Development</h3>
+            <p class="cat-desc">HTML, CSS, JavaScript, React, Vue, Node.js, databases and full-stack development frameworks.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>42 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap cat-purple"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3 class="cat-name">Digital Marketing</h3>
+            <p class="cat-desc">SEO, Google Ads, Facebook marketing, email campaigns, analytics and conversion optimisation.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>28 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap cat-pink"><i class="fa-solid fa-pen-nib"></i></div>
+            <h3 class="cat-name">Graphic Design</h3>
+            <p class="cat-desc">UI/UX, Figma, Adobe Suite, branding, logo design and visual communication principles.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>35 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap cat-green"><i class="fa-solid fa-briefcase"></i></div>
+            <h3 class="cat-name">Business</h3>
+            <p class="cat-desc">Entrepreneurship, project management, finance, leadership and MBA-level business skills.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>24 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap cat-orange"><i class="fa-solid fa-camera"></i></div>
+            <h3 class="cat-name">Photography</h3>
+            <p class="cat-desc">Composition, lighting, portrait, landscape, Adobe Lightroom and professional editing.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>18 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap cat-red"><i class="fa-solid fa-terminal"></i></div>
+            <h3 class="cat-name">Programming</h3>
+            <p class="cat-desc">Python, Java, C++, data structures, algorithms and modern software engineering practices.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>38 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap" style="background:#f0f9ff;color:#0284c7"><i class="fa-solid fa-brain"></i></div>
+            <h3 class="cat-name">Data Science & AI</h3>
+            <p class="cat-desc">Machine learning, deep learning, data analysis, TensorFlow, PyTorch and AI fundamentals.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>22 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap" style="background:#fef9ee;color:#d97706"><i class="fa-solid fa-music"></i></div>
+            <h3 class="cat-name">Music & Audio</h3>
+            <p class="cat-desc">Music theory, guitar, piano, music production, audio engineering and sound design.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>14 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <a href="courses.html" style="display:contents">
+          <div class="category-card">
+            <div class="cat-icon-wrap" style="background:#f0fdf4;color:#16a34a"><i class="fa-solid fa-heartbeat"></i></div>
+            <h3 class="cat-name">Health & Fitness</h3>
+            <p class="cat-desc">Yoga, nutrition, mental health, fitness training and wellness coaching for a better life.</p>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="cat-count"><i class="fa-solid fa-book-open me-1"></i>16 Courses</span>
+              <div class="cat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand"><span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>Skill<span>Bridge</span></div>
+        <p class="footer-desc">Empowering students worldwide to discover practical courses and build skills for personal and professional growth.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="instructors.html">Instructors</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Categories</div>
+        <ul class="footer-links">
+          <li><a href="categories.html">Web Dev</a></li>
+          <li><a href="categories.html">Design</a></li>
+          <li><a href="categories.html">Marketing</a></li>
+          <li><a href="categories.html">Business</a></li>
+          <li><a href="categories.html">Photography</a></li>
+          <li><a href="categories.html">Programming</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Support</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Newsletter</div>
+        <div class="newsletter-box">
+          <p>Get latest courses and offers.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email" />
+            <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 SkillBridge. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Support</a></div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" title="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete Web Development Bootcamp 2024 – Master HTML, CSS, JavaScript, React and more with Alex Rivera on SkillBridge." />
+  <title>Complete Web Development Bootcamp – SkillBridge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <style>
+    /* Detail-specific overrides */
+    .course-detail-hero {
+      background: var(--gradient-hero);
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .course-detail-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(37,99,235,.2) 0%, transparent 60%);
+    }
+    .course-tag-pill {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      color: white;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .25rem .75rem;
+      border-radius: var(--radius-full);
+      letter-spacing: .06em;
+      margin-bottom: 1rem;
+    }
+    .course-hero-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: .75rem;
+    }
+    .course-hero-desc {
+      font-size: .95rem;
+      color: rgba(255,255,255,.8);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      max-width: 620px;
+    }
+    .course-hero-meta {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      font-size: .85rem; color: rgba(255,255,255,.8);
+      margin-bottom: 1.5rem;
+    }
+    .course-hero-meta span { display: flex; align-items: center; gap: .35rem; }
+
+    /* Sticky enroll card */
+    .enroll-card {
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      position: sticky;
+      top: 90px;
+    }
+    .enroll-preview {
+      width: 100%; height: 200px;
+      object-fit: cover;
+    }
+    .enroll-body { padding: 1.5rem; }
+    .enroll-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .enroll-price .original {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--light-3);
+      text-decoration: line-through;
+      margin-left: .4rem;
+    }
+    .enroll-discount {
+      font-size: .8rem;
+      font-weight: 700;
+      background: #fef9c3;
+      color: #854d0e;
+      padding: .2rem .6rem;
+      border-radius: var(--radius-full);
+      margin-left: .4rem;
+    }
+    .btn-enroll {
+      width: 100%;
+      background: var(--gradient-primary);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: .9rem;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 1rem;
+      box-shadow: var(--shadow-primary);
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
+    .btn-enroll:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(37,99,235,.4); }
+    .enroll-features { list-style: none; padding: 0; margin: 1.25rem 0; }
+    .enroll-features li {
+      display: flex; align-items: center; gap: .6rem;
+      font-size: .85rem; color: var(--dark-3);
+      padding: .35rem 0;
+    }
+    .enroll-features li i { color: var(--success); font-size: .85rem; }
+    .guarantee-note {
+      text-align: center;
+      font-size: .78rem;
+      color: var(--mid);
+      margin-top: .75rem;
+    }
+
+    /* Curriculum */
+    .curriculum-section { background: var(--white); padding: 3rem 0; }
+    .section-module {
+      border: 1px solid var(--light);
+      border-radius: var(--radius-lg);
+      margin-bottom: .75rem;
+      overflow: hidden;
+    }
+    .module-header {
+      background: var(--lighter);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      gap: 1rem;
+    }
+    .module-title { font-weight: 700; font-size: .95rem; color: var(--dark); margin: 0; }
+    .module-meta { font-size: .78rem; color: var(--mid); }
+    .module-lessons { padding: 0 1.25rem; max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .module-lessons.open { max-height: 500px; }
+    .lesson-item {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .65rem 0;
+      border-top: 1px solid var(--light);
+      font-size: .88rem;
+      color: var(--dark-3);
+    }
+    .lesson-item:first-child { border-top: none; }
+    .lesson-item i { color: var(--light-3); font-size: .85rem; }
+    .lesson-duration { margin-left: auto; font-size: .78rem; color: var(--mid); }
+    .lesson-item.preview .lesson-tag {
+      font-size: .7rem; font-weight: 600; color: var(--primary);
+      background: var(--primary-pale);
+      padding: .1rem .5rem; border-radius: var(--radius-full);
+    }
+
+    /* Reviews */
+    .review-card {
+      background: var(--lighter);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .reviewer-name { font-weight: 700; font-size: .9rem; color: var(--dark); }
+    .reviewer-stars { color: var(--warning); font-size: .8rem; }
+    .review-date { font-size: .75rem; color: var(--light-3); }
+    .review-text { font-size: .875rem; color: var(--mid); line-height: 1.7; margin-top: .5rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+      Skill<span>Bridge</span>
+    </a>
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <i class="fa-solid fa-bars" style="font-size:1.2rem;color:var(--dark-3)"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="instructors.html">Instructors</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+        <div class="search-wrapper">
+          <button class="search-btn-icon" id="searchToggle"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <div class="search-dropdown" id="searchDropdown">
+            <input type="text" id="searchInput" placeholder="Search…" autocomplete="off" />
+            <div class="search-results" id="searchResults"></div>
+          </div>
+        </div>
+        <a href="login.html" class="nav-link btn-nav-login">Login</a>
+        <a href="signup.html" class="nav-link btn-nav-cta">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- COURSE HERO -->
+<section class="course-detail-hero">
+  <div class="container position-relative" style="z-index:1">
+    <div class="breadcrumb-custom">
+      <a href="index.html">Home</a><span class="sep">/</span>
+      <a href="courses.html">Courses</a><span class="sep">/</span>
+      <span class="current">Web Development</span>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <span class="course-tag-pill">Web Development</span>
+        <h1 class="course-hero-title">Complete Web Development Bootcamp 2024</h1>
+        <p class="course-hero-desc">
+          Master HTML5, CSS3, JavaScript, React, Node.js, MongoDB, and more. Build real projects from scratch and launch your career as a full-stack developer.
+        </p>
+        <div class="course-hero-meta">
+          <span><i class="fa-solid fa-star" style="color:#f59e0b"></i> 4.9 (2,847 ratings)</span>
+          <span><i class="fa-solid fa-users"></i> 12,400 students</span>
+          <span><i class="fa-regular fa-clock"></i> 48 hours total</span>
+          <span><i class="fa-solid fa-signal"></i> All levels</span>
+          <span><i class="fa-solid fa-language"></i> English</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:.75rem">
+            <div style="width:42px;height:42px;border-radius:50%;background:var(--gradient-primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700">AR</div>
+            <div>
+              <div style="color:rgba(255,255,255,.6);font-size:.72rem">Instructor</div>
+              <div style="color:white;font-weight:600;font-size:.9rem">Alex Rivera</div>
+            </div>
+          </div>
+          <span style="color:rgba(255,255,255,.6);font-size:.82rem"><i class="fa-solid fa-rotate me-1"></i>Last updated: Dec 2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT + ENROLL CARD -->
+<section style="padding:3rem 0;background:var(--lighter)">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Left: Details -->
+      <div class="col-lg-8">
+
+        <!-- What you'll learn -->
+        <div style="background:var(--white);border:1px solid var(--light);border-radius:var(--radius-xl);padding:2rem;margin-bottom:1.5rem" class="reveal">
+          <h2 style="font-size:1.25rem;font-weight:700;color:var(--dark);margin-bottom:1.25rem">What You'll Learn</h2>
+          <div class="row g-2">
+            <div class="col-sm-6">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Build responsive websites with HTML5 & CSS3</li>
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Master modern JavaScript (ES6+)</li>
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Build dynamic apps with React & hooks</li>
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Create RESTful APIs with Node.js & Express</li>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Work with MongoDB & SQL databases</li>
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Deploy apps to the cloud (AWS, Vercel)</li>
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Implement authentication & security</li>
+                <li style="display:flex;gap:.6rem;font-size:.88rem;color:var(--dark-3);padding:.3rem 0"><i class="fa-solid fa-check" style="color:var(--success);margin-top:.15rem"></i> Build 15+ real projects for your portfolio</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curriculum -->
+        <div style="background:var(--white);border:1px solid var(--light);border-radius:var(--radius-xl);padding:2rem;margin-bottom:1.5rem" class="reveal">
+          <h2 style="font-size:1.25rem;font-weight:700;color:var(--dark);margin-bottom:.25rem">Course Curriculum</h2>
+          <p style="font-size:.85rem;color:var(--mid);margin-bottom:1.25rem">18 sections &bull; 142 lectures &bull; 48h total</p>
+
+          <!-- Module 1 -->
+          <div class="section-module">
+            <div class="module-header" onclick="toggleModule(this)">
+              <div>
+                <div class="module-title">Module 1: HTML5 Fundamentals</div>
+                <div class="module-meta">8 lectures &bull; 3h 20m</div>
+              </div>
+              <i class="fa-solid fa-chevron-down" style="color:var(--mid);transition:var(--transition-fast)"></i>
+            </div>
+            <div class="module-lessons open">
+              <div class="lesson-item preview">
+                <i class="fa-regular fa-circle-play"></i>
+                Introduction to HTML5
+                <span class="lesson-tag ms-1">Preview</span>
+                <span class="lesson-duration">12:30</span>
+              </div>
+              <div class="lesson-item">
+                <i class="fa-regular fa-circle-play"></i>
+                Document Structure & Semantic Elements
+                <span class="lesson-duration">18:45</span>
+              </div>
+              <div class="lesson-item">
+                <i class="fa-regular fa-circle-play"></i>
+                Forms, Tables & Lists
+                <span class="lesson-duration">22:10</span>
+              </div>
+              <div class="lesson-item">
+                <i class="fa-solid fa-file-code"></i>
+                Quiz: HTML5 Basics
+                <span class="lesson-duration">10 questions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="section-module">
+            <div class="module-header" onclick="toggleModule(this)">
+              <div>
+                <div class="module-title">Module 2: CSS3 & Responsive Design</div>
+                <div class="module-meta">10 lectures &bull; 4h 15m</div>
+              </div>
+              <i class="fa-solid fa-chevron-down" style="color:var(--mid);transition:var(--transition-fast)"></i>
+            </div>
+            <div class="module-lessons">
+              <div class="lesson-item">
+                <i class="fa-regular fa-circle-play"></i>
+                CSS Fundamentals & Selectors
+                <span class="lesson-duration">20:00</span>
+              </div>
+              <div class="lesson-item">
+                <i class="fa-regular fa-circle-play"></i>
+                Flexbox & CSS Grid
+                <span class="lesson-duration">35:20</span>
+              </div>
+              <div class="lesson-item">
+                <i class="fa-regular fa-circle-play"></i>
+                Media Queries & Mobile-First Design
+                <span class="lesson-duration">28:45</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="section-module">
+            <div class="module-header" onclick="toggleModule(this)">
+              <div>
+                <div class="module-title">Module 3: JavaScript (ES6+)</div>
+                <div class="module-meta">15 lectures &bull; 7h 30m</div>
+              </div>
+              <i class="fa-solid fa-chevron-down" style="color:var(--mid);transition:var(--transition-fast)"></i>
+            </div>
+            <div class="module-lessons">
+              <div class="lesson-item preview">
+                <i class="fa-regular fa-circle-play"></i>
+                JavaScript Fundamentals
+                <span class="lesson-tag ms-1">Preview</span>
+                <span class="lesson-duration">25:10</span>
+              </div>
+              <div class="lesson-item">
+                <i class="fa-regular fa-circle-play"></i>
+                Arrow Functions, Destructuring & Spread
+                <span class="lesson-duration">30:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-3">
+            <button style="background:none;border:1.5px solid var(--primary);color:var(--primary);border-radius:var(--radius-sm);padding:.55rem 1.25rem;font-size:.88rem;font-weight:600;cursor:pointer;transition:var(--transition-fast)" onmouseover="this.style.background='var(--primary-pale)'" onmouseout="this.style.background='none'">
+              Show All 18 Modules <i class="fa-solid fa-chevron-down ms-1"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <div style="background:var(--white);border:1px solid var(--light);border-radius:var(--radius-xl);padding:2rem;margin-bottom:1.5rem" class="reveal">
+          <h2 style="font-size:1.25rem;font-weight:700;color:var(--dark);margin-bottom:1.25rem">Student Reviews</h2>
+
+          <div style="display:flex;align-items:center;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap">
+            <div style="text-align:center">
+              <div style="font-size:3.5rem;font-weight:800;color:var(--dark);line-height:1">4.9</div>
+              <div style="color:#f59e0b;font-size:1.1rem">★★★★★</div>
+              <div style="font-size:.78rem;color:var(--mid)">Course Rating</div>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="review-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem">
+                <div>
+                  <div class="reviewer-name">Sarah M.</div>
+                  <div class="reviewer-stars">★★★★★</div>
+                </div>
+                <div class="review-date">December 2024</div>
+              </div>
+              <p class="review-text">Absolutely the best web development course I've ever taken. Alex explains everything clearly and the projects are practical. I landed my first dev job after completing this!</p>
+            </div>
+            <div class="review-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem">
+                <div>
+                  <div class="reviewer-name">James R.</div>
+                  <div class="reviewer-stars">★★★★★</div>
+                </div>
+                <div class="review-date">November 2024</div>
+              </div>
+              <p class="review-text">This course covers everything from beginner to advanced level. The curriculum is well-structured and Alex's teaching style makes complex topics easy to understand.</p>
+            </div>
+            <div class="review-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem">
+                <div>
+                  <div class="reviewer-name">Priya K.</div>
+                  <div class="reviewer-stars">★★★★★</div>
+                </div>
+                <div class="review-date">October 2024</div>
+              </div>
+              <p class="review-text">Worth every penny! Went from zero coding experience to building full-stack apps in 3 months. The Discord community is also very helpful.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Enroll Card -->
+      <div class="col-lg-4">
+        <div class="enroll-card reveal-right">
+          <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=600&q=80"
+               class="enroll-preview" alt="Course preview" />
+          <div class="enroll-body">
+            <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:.3rem;margin-bottom:1rem">
+              <span class="enroll-price">$14.99</span>
+              <span class="enroll-price original">$89.99</span>
+              <span class="enroll-discount">83% OFF</span>
+            </div>
+            <div style="font-size:.78rem;color:var(--danger);font-weight:600;margin-bottom:1rem">
+              <i class="fa-solid fa-fire me-1"></i> Only 2 days left at this price!
+            </div>
+
+            <button class="btn-enroll" onclick="enrollNow()">
+              <i class="fa-solid fa-rocket"></i> Enrol Now
+            </button>
+            <button style="width:100%;background:transparent;border:1.5px solid var(--primary);color:var(--primary);font-weight:600;padding:.75rem;border-radius:var(--radius-md);cursor:pointer;margin-top:.6rem;transition:var(--transition-fast);font-size:.9rem" onmouseover="this.style.background='var(--primary-pale)'" onmouseout="this.style.background='transparent'">
+              Add to Wishlist
+            </button>
+
+            <ul class="enroll-features">
+              <li><i class="fa-solid fa-circle-check"></i> 48 hours on-demand video</li>
+              <li><i class="fa-solid fa-circle-check"></i> 15 real-world projects</li>
+              <li><i class="fa-solid fa-circle-check"></i> Lifetime access</li>
+              <li><i class="fa-solid fa-circle-check"></i> Access on mobile & desktop</li>
+              <li><i class="fa-solid fa-circle-check"></i> Certificate of completion</li>
+              <li><i class="fa-solid fa-circle-check"></i> Discord community access</li>
+            </ul>
+
+            <p class="guarantee-note">
+              <i class="fa-solid fa-shield-halved me-1" style="color:var(--success)"></i>
+              30-day money-back guarantee
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand"><span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>Skill<span>Bridge</span></div>
+        <p class="footer-desc">Empowering students worldwide to discover practical courses and build skills for professional growth.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="categories.html">Categories</a></li>
+          <li><a href="instructors.html">Instructors</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <div class="footer-heading">Support</div>
+        <ul class="footer-links">
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="footer-heading">Newsletter</div>
+        <div class="newsletter-box">
+          <p>Get latest courses and offers.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Your email" />
+            <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 SkillBridge. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Support</a></div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" title="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function toggleModule(header) {
+    const lessons = header.nextElementSibling;
+    const icon = header.querySelector('i.fa-chevron-down');
+    lessons.classList.toggle('open');
+    icon.style.transform = lessons.classList.contains('open') ? 'rotate(180deg)' : '';
+  }
+
+  function enrollNow() {
+    showToast('Redirecting to checkout…', 'success');
+    setTimeout(() => { window.location.href = 'signup.html'; }, 1000);
+  }
+</script>
+</body>
+</html>
